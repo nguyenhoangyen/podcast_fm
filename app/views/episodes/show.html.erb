@@ -19,8 +19,22 @@
 		<%= link_to podcasts_path do %>
 			All Podcasts
 			<span>/</span>
-			<%= @podcast.title %>
+			<%= link_to @podcast.title, podcast_path(@podcast) %>
+			<span>/</span>
+			<%= @episode.title %>
 		<% end %>
+	</div>
+
+	<div id="episode_content">
+		<div class="wrapper_skinny">
+			Image
+			<h2><%= @episode.title %></h2>
+			<p class="description"><%= @episode.description %></p>
+
+			<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+      
+
+		</div>
 	</div>
 
 	<div id="episodes">
@@ -29,8 +43,8 @@
 				<% @episodes.each do |episode| %>
 					<li class="cf">
 						<div class="episode_thumbnail">
-							<a href="#">
-								<%= image_tag episode.episode_thumbnail.url(:medium) %>
+							<a href="episode.html">
+								Image
 							</a>
 						</div>
 						<div class="episode_overview">
@@ -40,8 +54,6 @@
 					</li>
 				<% end %>
 			</ul>
-
-			<%= will_paginate @episodes, previous_label: "Previous", next_label: "Next" %>
 		</div>
 	</div>
 </div>
